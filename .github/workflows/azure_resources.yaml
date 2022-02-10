@@ -76,10 +76,10 @@ jobs:
         run: terraform plan --var-file=vars.tfvars -no-color -out=plan.tfdata
         working-directory: '.'
 
-      - name: Terraform Apply
-        run: terraform apply -auto-approve plan.tfdata
-        working-directory: '.'
-
-#      - name: Terraform Destroy
-#        run: terraform destroy -auto-approve --var-file=vars.tfvars 
+#      - name: Terraform Apply
+#        run: terraform apply -auto-approve plan.tfdata
 #        working-directory: '.'
+
+      - name: Terraform Destroy
+        run: terraform destroy -auto-approve --var-file=vars.tfvars 
+        working-directory: '.'
