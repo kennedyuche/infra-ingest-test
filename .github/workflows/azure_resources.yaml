@@ -64,7 +64,7 @@ jobs:
 
       - name: Terraform init
         id: init
-        run: terraform init -backend-config="storage_account_name=k8stfbackend" -backend-config="container_name=tfstate" -backend-config="access_key=${{ secrets.ARM_ACCESS_KEY }}" -backend-config="key=codelab.microsoft.tfstate"
+        run: terraform init -backend-config="access_key=${{ secrets.ARM_ACCESS_KEY }}"
         working-directory: '.'
 
       - name: Terraform Validate
@@ -76,10 +76,10 @@ jobs:
         run: terraform plan --var-file=vars.tfvars -no-color -out=plan.tfdata
         working-directory: '.'
 
-#      - name: Terraform Apply
-#        run: terraform apply -auto-approve plan.tfdata
-#        working-directory: '.'
-
-      - name: Terraform Destroy
-        run: terraform destroy -auto-approve --var-file=vars.tfvars 
+      - name: Terraform Apply
+        run: terraform apply -auto-approve plan.tfdata
         working-directory: '.'
+
+#      - name: Terraform Destroy
+#        run: terraform destroy --var-file=vars.tfvars -auto-approve plan.tfdata
+#        working-directory: '.'
