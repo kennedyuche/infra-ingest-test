@@ -64,10 +64,7 @@ jobs:
 
       - name: Terraform init
         id: init
-        run: terraform init -backend-config="storage_account_name=k8stfbackend" \
-          -backend-config="container_name=tfstate" -backend-config="access_key=${{ secrets.ARM_ACCESS_KEY }}" \
-          -backend-config="key=codelab.microsoft.tfstate"
-        
+        run: terraform init -backend-config="storage_account_name=k8stfbackend" -backend-config="container_name=tfstate" -backend-config="access_key=${{ secrets.ARM_ACCESS_KEY }}" -backend-config="key=codelab.microsoft.tfstate"
         working-directory: '.'
 
       - name: Terraform Validate
