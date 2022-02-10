@@ -81,5 +81,5 @@ jobs:
 #       working-directory: '.'
 
       - name: Terraform Destroy
-        run: terraform destroy --var-file=vars.tfvars -auto-approve plan.tfdata
+        run: terraform destroy -auto-approve --var-file=vars.tfvars
         working-directory: '.'
