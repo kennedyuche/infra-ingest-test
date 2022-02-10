@@ -1,5 +1,5 @@
-variable "resource_group_name" {}
-variable "resource_group_location" {}
+# variable "resource_group_name" {}
+# variable "resource_group_location" {}
 variable "cluster_name" {}
 
 # node pool
